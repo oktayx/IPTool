@@ -223,8 +223,7 @@ IPTool/
 │   └── ConfigManager.cs               # Configuration management service
 ├── wifi-config.json                   # Configuration file (required, must be created)
 ├── README.md                          # This file
-└── plans/
-    └── wifi-ip-tool-architecture.md   # Detailed architecture documentation
+
 ```
 
 ## Security Considerations
