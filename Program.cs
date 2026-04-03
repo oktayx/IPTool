@@ -56,6 +56,37 @@ class Program
                 Console.WriteLine($"  DNS Server: {networkConfig.DNSServer}");
                 Console.WriteLine();
 
+                // Verify network configuration
+                Console.WriteLine("Verifying network configuration...");
+                var verificationService = new NetworkVerificationService();
+                var verificationResult = await verificationService.VerifyNetworkConfigAsync(networkConfig);
+
+                if (verificationResult.Warnings.Count > 0)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Warnings:");
+                    foreach (var warning in verificationResult.Warnings)
+                    {
+                        Console.WriteLine($"  - {warning}");
+                    }
+                }
+
+                if (verificationResult.Errors.Count > 0)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Errors:");
+                    foreach (var error in verificationResult.Errors)
+                    {
+                        Console.WriteLine($"  - {error}");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Cannot apply configuration due to errors. Please fix the issues and try again.");
+                    Environment.Exit(1);
+                    return;
+                }
+
+                Console.WriteLine();
+
                 // Get the active Wi-Fi adapter
                 var adapterName = networkService.GetActiveWifiAdapter();
                 if (string.IsNullOrEmpty(adapterName))

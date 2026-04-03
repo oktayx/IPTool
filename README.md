@@ -57,7 +57,7 @@ The tool uses a JSON configuration file (`wifi-config.json`) to define Wi-Fi net
 ```json
 {
   "networks": {
-    "Wifi47": {
+    "MyWifi": {
       "ipAddress": "192.168.1.111",
       "subnetMask": "255.255.255.0",
       "gateway": "192.168.1.1",
