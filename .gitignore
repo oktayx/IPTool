@@ -44,9 +44,6 @@ bld/
 # Visual Studio cache/options directory
 .vs/
 
-# Architecture and planning documents
-plans/
-
 # .NET Core
 project.lock.json
 project.fragment.lock.json
